@@ -1,3 +1,2 @@
 # CrudAngularComCSharp
-# CrudAngularComCSharp
-# AngularCRUDComCsharp
+
