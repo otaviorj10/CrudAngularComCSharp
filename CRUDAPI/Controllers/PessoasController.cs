@@ -56,14 +56,17 @@ namespace CRUDAPI.Controllers
         }
 
 
-        [HttpDelete("{PessoaId}")]
+        [HttpDelete("{PessoalId}")]
         public async Task<ActionResult> DeletePessoa(int pessoaId)
         {
             Pessoa pessoa = await _contexto.Pessoas.FindAsync(pessoaId);
 
-                _contexto.Pessoas.Remove(pessoa);
-                await _contexto.SaveChangesAsync();
-                return Ok();
+            if (pessoa == null)
+                return NotFound();
+
+            _contexto.Pessoas.Remove(pessoa);
+            await _contexto.SaveChangesAsync();
+            return Ok();
         }
 
     }

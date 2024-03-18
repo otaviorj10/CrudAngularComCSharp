@@ -12,6 +12,7 @@ builder.Services.AddSwaggerGen();
 
 builder.Services.AddDbContext<Contexto>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("conexaoDB")));
 
+builder.Services.AddCors();
 
 
 var app = builder.Build();
@@ -28,5 +29,7 @@ app.UseHttpsRedirection();
 app.UseAuthorization();
 
 app.MapControllers();
+
+app.UseCors(opcoes=> opcoes.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader());
 
 app.Run();
