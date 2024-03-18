@@ -1,7 +1,10 @@
+using System.ComponentModel.DataAnnotations;
+
 namespace CRUDAPI.Models
 {
     public class Pessoa
     {
+        [Key]
         public int PessoalId { get; set; }
         public string Nome { get; set; }
 
